@@ -147,7 +147,6 @@ function buildCardContent(userId: string): void {
       cardsContainer.appendChild(githubCardCreator(githubContent));
     })
     .catch((err) => {
-      debugger;
       console.log(err.message);
     });
 
@@ -164,13 +163,11 @@ function buildCardContent(userId: string): void {
             cardsContainer.appendChild(githubCardCreator(user));
           })
           .catch((err) => {
-            debugger;
             console.log(err.message);
           });
       });
     })
     .catch((err) => {
-      debugger;
       console.log(err.message);
     });
 }
@@ -181,5 +178,9 @@ const usernameField: HTMLTextAreaElement = document.querySelector(
 );
 submitButton.addEventListener("click", (event: MouseEvent) => {
   event.preventDefault();
+  const oldCards: HTMLCollection = cardsContainer.children;
+  for (let i = 0; i < oldCards.length; i++) {
+    oldCards[i].remove();
+  }
   buildCardContent(usernameField.value);
 });

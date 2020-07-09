@@ -77,7 +77,6 @@ function buildCardContent(userId) {
         cardsContainer.appendChild(githubCardCreator(githubContent));
     })
         .catch(function (err) {
-        debugger;
         console.log(err.message);
     });
     axios_1.default.get("https://api.github.com/users/" + userId + "/followers")
@@ -93,13 +92,11 @@ function buildCardContent(userId) {
                 cardsContainer.appendChild(githubCardCreator(user));
             })
                 .catch(function (err) {
-                debugger;
                 console.log(err.message);
             });
         });
     })
         .catch(function (err) {
-        debugger;
         console.log(err.message);
     });
 }
@@ -107,5 +104,9 @@ var submitButton = document.querySelector("button");
 var usernameField = document.querySelector("#usernameField");
 submitButton.addEventListener("click", function (event) {
     event.preventDefault();
+    var oldCards = cardsContainer.children;
+    for (var i = 0; i < oldCards.length; i++) {
+        oldCards[i].remove();
+    }
     buildCardContent(usernameField.value);
 });
