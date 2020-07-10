@@ -123,5 +123,45 @@ body {
   margin: 3px 0 10px;
 }
 
-
-
+form.user-input{
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: .5rem;
+  background: white;
+}
+form.user-input div{
+  margin: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+form.user-input label{
+  font-size: 2rem;
+  margin-right: 2rem;
+}
+form.user-input input{
+  text-align: center;
+  background: grey;
+  border-radius: .25rem;
+  padding: 1rem;
+}
+form.user-input button:hover{ 
+  border: .25rem solid black;
+  padding: .5rem;
+  background: black;
+  color: white;
+  box-shadow: 0rem .25rem 2rem 0rem grey;
+}
+form.user-input button{ 
+  border: .25rem solid black;
+  padding: .5rem;
+  background: black;
+  color: white;
+}
+form.user-input button:active{
+  border: .25rem solid grey;
+  box-shadow: none;
+}
